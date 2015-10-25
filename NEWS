@@ -1,0 +1,22 @@
+cmappertools: Tools for Python Mapper in C++
+
+Copyright © 2011–2015 Daniel Müllner, http://danifold.net
+
+
+Version history
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+Version 1.0.20, 03/16/2015:
+
+  • Improved compatibility for OS X.
+
+Version 1.0.21, 06/28/2015:
+
+  • Simplified setup, no makefile.
+
+Version 1.0.22, 06/30/2015:
+
+  • Small changes for PyPI.
+
+Version 1.0.23, 10/13/2015:
+
+  • Improved setup script.
