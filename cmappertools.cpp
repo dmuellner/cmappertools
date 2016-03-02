@@ -246,8 +246,8 @@ CMT_Py_XDECREF(PYOBJECT *o)
 
 bool const multithreading = true;
 
-static char const __version__[] = "1.0.23";
-static char const __date__[] = "October 13, 2015";
+static char const __version__[] = "1.0.24";
+static char const __date__[] = "March 2, 2016";
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -874,7 +874,7 @@ static char format_int[] = "i";
 class Callback
 {
 private:
-  PyThreadState * * const PythonThreadSave;
+  PyThreadState * & PythonThreadSave;
   PyObject * const callback;
   npy_int64 oldpercent;
 
@@ -884,7 +884,7 @@ private:
   operator=(Callback const &);
 
 public:
-  Callback(PyThreadState * * PythonThreadSave_, PyObject * callback_)
+  Callback(PyThreadState * & PythonThreadSave_, PyObject * callback_)
       : PythonThreadSave(PythonThreadSave_),
         callback(callback_),
         oldpercent(-1)
@@ -901,22 +901,22 @@ public:
     if (percent != oldpercent)
     {
       oldpercent = percent;
-      if (*PythonThreadSave)
+      if (PythonThreadSave)
       { // Only restore if the state has been saved
-        PyEval_RestoreThread(*PythonThreadSave);
+        PyEval_RestoreThread(PythonThreadSave);
       }
       PyObject * answer = PyObject_CallFunction(callback, format_int, percent);
       CMT_Py_XDECREF(answer);
-      *PythonThreadSave = PyEval_SaveThread();
+      PythonThreadSave = PyEval_SaveThread();
     }
   }
 
   void
   RestoreAndSend100Percent()
   {
-    if (*PythonThreadSave)
+    if (PythonThreadSave)
     { // Only restore if the state has been saved
-      PyEval_RestoreThread(*PythonThreadSave);
+      PyEval_RestoreThread(PythonThreadSave);
     }
     if (callback && 100 != oldpercent)
     {
@@ -1095,7 +1095,7 @@ namespace kernel_filter
       {
         throw(err_callback_not_callable);
       }
-      Callback SendProgress(&PythonThreadSave, callback);
+      Callback SendProgress(PythonThreadSave, callback);
 
       npy_intp const ndim = PyArray_NDIM(data_double);
 
@@ -1340,6 +1340,9 @@ namespace graph
    The NumPy arrays are generated freshly and should therefore have reference
    count 1. Don't forget to decrease the reference count if the arrays are
    no longer needed.
+
+   Note that the constructor csr_graph_generator(Vertex const N_) creates
+   Python objects, hence the GIL must be held by the calling thread.
    */
 
   class csr_graph_generator
@@ -1385,7 +1388,7 @@ namespace graph
     }
 
     EdgeIndex
-    finalize(PyThreadState * * const PythonThreadSave, bool diagonal = false)
+    finalize(PyThreadState * & PythonThreadSave, bool diagonal = false)
     {
       EdgeIndex next;
       EdgeIndex num_edges = 0;
@@ -1396,7 +1399,7 @@ namespace graph
         num_edges += next;
       }
 
-      PyEval_RestoreThread(*PythonThreadSave);
+      PyEval_RestoreThread(PythonThreadSave);
 
       targets_npy = reinterpret_cast<PyArrayObject *>(CMT_PyArray_SimpleNew(1,
           &num_edges, NPY_INTP));
@@ -1406,7 +1409,7 @@ namespace graph
           &num_edges, NPY_DOUBLE));
       weights = reinterpret_cast<Weight *>(PyArray_DATA(weights_npy));
 
-      *PythonThreadSave = PyEval_SaveThread();
+      PythonThreadSave = PyEval_SaveThread();
 
       // If the diagonal is included in the graph, add the loop edges as the
       // first edge of each vertex.
@@ -1515,7 +1518,7 @@ namespace graph
       {
         throw(err_callback_not_callable);
       }
-      Callback SendProgress(&PythonThreadSave, callback);
+      Callback SendProgress(PythonThreadSave, callback);
 
       int diagonal = 0; // false
       if (diagonal_py)
@@ -1548,9 +1551,9 @@ namespace graph
       if (eps < 0)
         throw(err_eps);
 
-      PythonThreadSave = PyEval_SaveThread();
-
       csr_graph_generator G(N);
+
+      PythonThreadSave = PyEval_SaveThread();
 
       Weight const * Dptr = D;
       if (verbose)
@@ -1668,7 +1671,7 @@ namespace graph
         }
       }
 
-      EdgeIndex const num_edges = G.finalize(&PythonThreadSave, diagonal != 0);
+      EdgeIndex const num_edges = G.finalize(PythonThreadSave, diagonal != 0);
 
       if (verbose)
       {
@@ -2186,7 +2189,7 @@ namespace graph
       {
         throw(err_callback_not_callable);
       }
-      Callback SendProgress(&PythonThreadSave, callback);
+      Callback SendProgress(PythonThreadSave, callback);
 
       if (!(rowstart_npy =
           reinterpret_cast<PyArrayObject *>(CMT_PyArray_FROMANY(rowstart_py,
@@ -2680,7 +2683,7 @@ namespace nn_from_dm
       {
         throw(err_callback_not_callable);
       }
-      Callback SendProgress(&PythonThreadSave, callback);
+      Callback SendProgress(PythonThreadSave, callback);
 
       npy_intp dims[2] =
         { N, k };

@@ -20,3 +20,7 @@ Version 1.0.22, 06/30/2015:
 Version 1.0.23, 10/13/2015:
 
   • Improved setup script.
+
+Version 1.0.24, 03/02/2016:
+
+  • Bugfix in csr_graph_generator.
