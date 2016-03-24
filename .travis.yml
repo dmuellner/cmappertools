@@ -17,15 +17,11 @@ before_install:
   venv; fi
 - if [[ "$TERRYFY_PYTHON" == "homebrew 3" ]]; then alias pip=`which pip3` ; fi
 install:
-- pip install numpy scipy
+- pip install numpy
 - python setup.py build
 - python setup.py bdist_wheel
 script:
-- export PYTHONPATH="${PYTHONPATH+$PYTHONPATH:}/Users/travis/.local/lib/python2.7/site-packages"
-- export PYTHONPATH="${PYTHONPATH+$PYTHONPATH:}/Users/travis/.local/lib/python3.5/site-packages"
-- echo "$PYTHONPATH"
-- python -c "import sys; print(sys.path)"
-- python setup.py install --user
+- python setup.py install
 - python -c "import cmappertools"
 after_success:
 - WHEELFILE=`ls -1 dist/*.whl`
