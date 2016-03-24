@@ -21,6 +21,7 @@ install:
 - python setup.py build
 - python setup.py bdist_wheel
 script:
+- python setup.py install --user
 - python -c "import cmappertools"
 after_success:
 - WHEELFILE=`ls -1 dist/*.whl`
