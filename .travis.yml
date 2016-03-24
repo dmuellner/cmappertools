@@ -25,7 +25,7 @@ script:
 - export PYTHONPATH="${PYTHONPATH+$PYTHONPATH:}/Users/travis/.local/lib/python3.5/site-packages"
 - echo "$PYTHONPATH"
 - python -c "import sys; print(sys.path)"
-- python setup.py install --prefix /Users/travis/build/dmuellner/cmappertools/venv/lib/python2.7/site-packages
+- python setup.py install
 - python -c "import cmappertools"
 after_success:
 - WHEELFILE=`ls -1 dist/*.whl`
