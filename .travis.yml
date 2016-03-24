@@ -21,6 +21,9 @@ install:
 - python setup.py build
 - python setup.py bdist_wheel
 script:
+- PYTHONPATH="${PATH+$PATH:}/Users/travis/.local/lib/python2.7/site-packages"
+- PYTHONPATH="${PATH+$PATH:}/Users/travis/.local/lib/python3.5/site-packages"
+- echo "$PYTHONPATH"
 - python setup.py install --user
 - python -c "import cmappertools"
 after_success:
