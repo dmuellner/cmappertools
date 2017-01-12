@@ -4,7 +4,7 @@ cmappertools: Tools for Python Mapper in C++
 This file is part of the Python Mapper package, an open source tool
 for exploration, analysis and visualization of data.
 
-Copyright 2011–2015 Daniel Müllner, http://danifold.net
+Copyright 2011–2016 Daniel Müllner, http://danifold.net
 
 Python Mapper is distributed under the GPLv3 license. See the project home page
 

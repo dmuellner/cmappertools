@@ -1,5 +1,5 @@
 # version format
-version: 1.1.23-{build}
+version: 1.0.24-{build}
 
 environment:
   global:
@@ -23,22 +23,22 @@ environment:
       PYTHON_ARCH: "64"
       MSVC_VERSION: "9"
 
-    - PYTHON_VERSION: "3.4"
-      PYTHON: "C:\\Miniconda3"
-      PYTHON_ARCH: "32"
-      MSVC_VERSION: "10"
-
-    - PYTHON_VERSION: "3.4"
-      PYTHON: "C:\\Miniconda3-x64"
-      PYTHON_ARCH: "64"
-      MSVC_VERSION: "10"
-
     - PYTHON_VERSION: "3.5"
       PYTHON: "C:\\Miniconda3"
       PYTHON_ARCH: "32"
       MSVC_VERSION: "14"
 
     - PYTHON_VERSION: "3.5"
+      PYTHON: "C:\\Miniconda3-x64"
+      PYTHON_ARCH: "64"
+      MSVC_VERSION: "14"
+
+    - PYTHON_VERSION: "3.6"
+      PYTHON: "C:\\Miniconda3"
+      PYTHON_ARCH: "32"
+      MSVC_VERSION: "14"
+
+    - PYTHON_VERSION: "3.6"
       PYTHON: "C:\\Miniconda3-x64"
       PYTHON_ARCH: "64"
       MSVC_VERSION: "14"

@@ -1,7 +1,7 @@
 /*
   Compressed sparse row graph structure for use with boost::graph.
 
-  Copyright 2011–2015 Daniel Müllner, http://danifold.net
+  Copyright 2011–2016 Daniel Müllner, http://danifold.net
 
   This file is derived from the C++ header file
       compressed_sparse_row_graph.hpp
