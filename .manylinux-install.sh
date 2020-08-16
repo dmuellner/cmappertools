@@ -24,6 +24,7 @@ for PYBIN in /opt/python/*/bin; do
         echo '''[build_ext]
 include_dirs=/usr/include/boost148
 library_dirs=/usr/lib/boost148:/usr/lib64/boost148
+libraries=boost_thread-mt:boost_chrono-mt
 ''' > /io/setup.cfg
         ls -la /usr/lib/boost148 || true
         "${PYBIN}/pip" install -e /io/
