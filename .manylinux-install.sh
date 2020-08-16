@@ -4,12 +4,12 @@ set -e -x
 
 # Install Boost, -y means "assume yes".
 yum -y install boost148-thread boost148-devel
-ls -la /usr
-ls -la /usr/lib
-ls -la /usr/lib/boost148
-ls -la /usr/lib64/boost148
-ln -s /usr/lib/boost148/libboost_thread-mt.so /usr/lib/boost148/libboost_thread.so
-ln -s /usr/lib64/boost148/libboost_thread-mt.so /usr/lib64/boost148/libboost_thread.so
+#ls -la /usr
+#ls -la /usr/lib
+#ls -la /usr/lib/boost148
+#ls -la /usr/lib64/boost148
+#ln -s /usr/lib/boost148/libboost_thread-mt.so /usr/lib/boost148/libboost_thread.so
+#ln -s /usr/lib64/boost148/libboost_thread-mt.so /usr/lib64/boost148/libboost_thread.so
 
 # Compile wheels
 for PYBIN in /opt/python/*/bin; do
@@ -25,6 +25,7 @@ for PYBIN in /opt/python/*/bin; do
 include_dirs=/usr/include/boost148
 library_dirs=["/usr/lib/boost148", "/usr/lib64/boost148"]
 ''' > /io/setup.cfg
+        ls -la /usr/lib/boost148 || true
         "${PYBIN}/pip" install -e /io/
     (cd /io && "${PYBIN}/python" setup.py test)
         "${PYBIN}/pip" wheel /io/ -w dist/
