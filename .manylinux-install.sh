@@ -9,7 +9,11 @@ yum info boost148-python
 yum -y install yum-utils
 repoquery --list boost148-devel
 
-ls -la /opt/_internal/cpython-2.7.18-ucs2/lib/python2.7/site-packages
+ls -la /usr/include/boost148/python
+
+echo '''[build_ext]
+include_dirs=/usr/include/boost148
+''' > setup.cfg
 
 # Compile wheels
 for PYBIN in /opt/python/*/bin; do
