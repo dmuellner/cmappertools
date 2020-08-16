@@ -22,6 +22,7 @@ for PYBIN in /opt/python/*/bin; do
        [[ "${PYBIN}" == *"cp37"* ]] || \
        [[ "${PYBIN}" == *"cp38"* ]]; then
         "${PYBIN}/pip" install numpy
+        ls -la /io
         "${PYBIN}/pip" install -e /io/
         echo '''[build_ext]
 include_dirs=/usr/include/boost148
