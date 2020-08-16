@@ -17,7 +17,6 @@
 '''
 import sys
 import numpy
-import os
 if sys.hexversion < 0x03000000: # uniform unicode handling for both Python 2.x and 3.x
     def u(x):
         return x.decode('utf-8')
@@ -40,7 +39,6 @@ with textfileopen('cmappertools.cpp') as f:
             break
 
 print('Version: ' + version)
-print('os.uname: ', os.uname())
 
 if sys.platform.startswith('win32'):
     libraries = []
