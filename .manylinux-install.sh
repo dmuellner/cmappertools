@@ -3,7 +3,7 @@
 set -e -x
 
 # Install Boost, -y means "assume yes".
-yum -y install boost-devel
+yum -y install boost-thread boost-devel
 
 # Compile wheels
 for PYBIN in /opt/python/*/bin; do
