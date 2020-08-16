@@ -11,9 +11,8 @@ yum -y install boost148-thread boost148-devel
 
 ls -la /usr/include/boost148/boost/python
 
-echo '''[build_ext]
-include_dirs=/usr/include/boost148
-''' > setup.cfg
+pwd
+ls -la .
 
 # Compile wheels
 for PYBIN in /opt/python/*/bin; do
@@ -24,6 +23,10 @@ for PYBIN in /opt/python/*/bin; do
        [[ "${PYBIN}" == *"cp38"* ]]; then
         "${PYBIN}/pip" install numpy
         "${PYBIN}/pip" install -e /io/
+        echo '''[build_ext]
+include_dirs=/usr/include/boost148
+''' > /io/setup.cfg
+        ls -la /io
     (cd /io && "${PYBIN}/python" setup.py test)
         "${PYBIN}/pip" wheel /io/ -w dist/
         rm -rf /io/build /io/*.egg-info
