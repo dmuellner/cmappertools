@@ -3,7 +3,7 @@
 set -e -x
 
 # Install Boost
-yum install boost-devel
+yum --assumeyes install boost-devel
 
 # Compile wheels
 for PYBIN in /opt/python/*/bin; do
