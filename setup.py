@@ -39,6 +39,7 @@ with textfileopen('cmappertools.cpp') as f:
             break
 
 print('Version: ' + version)
+print('Platform: ' + sys.platform)
 
 if sys.platform.startswith('win32'):
     libraries = []
