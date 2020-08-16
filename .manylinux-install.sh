@@ -2,6 +2,9 @@
 
 set -e -x
 
+# Install Boost
+yum install boost-devel
+
 # Compile wheels
 for PYBIN in /opt/python/*/bin; do
     if [[ "${PYBIN}" == *"cp27"* ]] || \
