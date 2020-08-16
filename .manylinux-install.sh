@@ -9,7 +9,7 @@ yum -y install boost148-thread boost148-devel
 #yum -y install yum-utils
 #repoquery --list boost148-devel
 
-ls -la /usr/include/boost148/python
+ls -la /usr/include/boost148/boost/python
 
 echo '''[build_ext]
 include_dirs=/usr/include/boost148
