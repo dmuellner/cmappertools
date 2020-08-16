@@ -25,6 +25,7 @@ for PYBIN in /opt/python/*/bin; do
         ls -la /io
         echo '''[build_ext]
 include_dirs=/usr/include/boost148
+library_dirs=/usr/lib/boost148
 ''' > /io/setup.cfg
         "${PYBIN}/pip" install -e /io/
     (cd /io && "${PYBIN}/python" setup.py test)
