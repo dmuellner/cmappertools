@@ -4,6 +4,8 @@ set -e -x
 
 # Install Boost, -y means "assume yes".
 yum -y install boost148-thread boost148-devel
+ls -la /usr/lib/boost148/
+ls -la /usr/lib64/boost148/
 ln -s /usr/lib/boost148/libboost_thread-mt.so /usr/lib/boost148/libboost_thread.so
 ln -s /usr/lib64/boost148/libboost_thread-mt.so /usr/lib64/boost148/libboost_thread.so
 
