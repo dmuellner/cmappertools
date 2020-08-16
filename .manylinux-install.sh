@@ -5,9 +5,9 @@ set -e -x
 # Install Boost, -y means "assume yes".
 yum -y install boost148-thread boost148-devel
 
-yum info boost148-python
-yum -y install yum-utils
-repoquery --list boost148-devel
+#yum info boost148-python
+#yum -y install yum-utils
+#repoquery --list boost148-devel
 
 ls -la /usr/include/boost148/python
 
