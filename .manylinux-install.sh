@@ -23,7 +23,7 @@ for PYBIN in /opt/python/*/bin; do
         "${PYBIN}/pip" install numpy
         echo '''[build_ext]
 include_dirs=/usr/include/boost148
-library_dirs=["/usr/lib/boost148", "/usr/lib64/boost148"]
+library_dirs=/usr/lib/boost148:/usr/lib64/boost148
 ''' > /io/setup.cfg
         ls -la /usr/lib/boost148 || true
         "${PYBIN}/pip" install -e /io/
