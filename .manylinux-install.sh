@@ -4,6 +4,8 @@ set -e -x
 
 # Install Boost, -y means "assume yes".
 yum -y install boost148-thread boost148-devel
+ln -s /usr/lib/boost148/libboost_thread.so /usr/lib/boost148/libboost_thread.so-mt.so
+ln -s /usr/lib64/boost148/libboost_thread.so /usr/lib64/boost148/libboost_thread.so-mt.so
 
 #yum info boost148-python
 #yum -y install yum-utils
@@ -24,7 +26,7 @@ for PYBIN in /opt/python/*/bin; do
         "${PYBIN}/pip" install numpy
         ls -la /io
         echo '''[build_ext]
-include_dirs="/usr/include/boost148"
+include_dirs=/usr/include/boost148
 library_dirs=["/usr/lib/boost148", "/usr/lib64/boost148"]
 ''' > /io/setup.cfg
         "${PYBIN}/pip" install -e /io/
