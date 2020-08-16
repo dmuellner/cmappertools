@@ -3,6 +3,7 @@
 set -e -x
 
 # Install Boost, -y means "assume yes".
+yum list available boost*
 yum -y install boost-thread boost-devel
 
 # Compile wheels
