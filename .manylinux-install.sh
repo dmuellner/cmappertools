@@ -2,8 +2,8 @@
 
 set -e -x
 
-# Install Boost
-yum --assumeyes install boost-devel
+# Install Boost, -y means "assume yes".
+yum -y install boost-devel
 
 # Compile wheels
 for PYBIN in /opt/python/*/bin; do
