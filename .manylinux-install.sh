@@ -10,10 +10,10 @@ repoquery --list boost148-python
 #ls -la /usr/lib
 #ls -la /usr/lib64
 if test -f /usr/lib/libboost_thread-mt.so.1.48.0; then
-    ln -s /usr/lib/libboost_thread-mt.so.1.48.0 /usr/lib/libboost_thread.so.1.48.0
+    ln -s /usr/lib/libboost_thread-mt.so.1.48.0 /usr/lib/boost148/libboost_thread.so
 fi
 if test -f /usr/lib64/libboost_thread-mt.so.1.48.0; then
-    ln -s /usr/lib64/libboost_thread-mt.so.1.48.0 /usr/lib64/libboost_thread.so.1.48.0
+    ln -s /usr/lib64/libboost_thread-mt.so.1.48.0 /usr/lib64/boost148/libboost_thread.so
 fi
 
 # Compile wheels
@@ -30,6 +30,7 @@ for PYBIN in /opt/python/*/bin; do
         "${PYBIN}/pip" install numpy
         echo '''[build_ext]
 include_dirs=/usr/include/boost148
+library_dirs=/usr/lib/boost148:/usr/lib64/boost148
 ''' > /io/setup.cfg
         ls -la /usr/lib/boost148 || true
         "${PYBIN}/pip" install -e /io/
