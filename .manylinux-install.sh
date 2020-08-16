@@ -8,15 +8,16 @@ yum -y install yum-utils
 repoquery --list boost148-python
 ls -la /usr
 ls -la /usr/lib
-ls -la /usr/lib/boost148
-ls -la /usr/lib64/boost148
-#ln -s /usr/lib/boost148/libboost_thread-mt.so /usr/lib/boost148/libboost_thread.so
-#ln -s /usr/lib64/boost148/libboost_thread-mt.so /usr/lib64/boost148/libboost_thread.so
+ls -la /usr/lib64
+ln -s /usr/lib/libboost_thread-mt.so /usr/lib/boost148/libboost_thread.so
+ln -s /usr/lib64/libboost_thread-mt.so /usr/lib64/boost148/libboost_thread.so
 
 # Compile wheels
 for PYBIN in /opt/python/*/bin; do
     echo "Python:"
     echo ${PYBIN}
+done
+for PYBIN in /opt/python/*/bin; do
     if [[ "${PYBIN}" == *"cp27"* ]] || \
        [[ "${PYBIN}" == *"cp35"* ]] || \
        [[ "${PYBIN}" == *"cp36"* ]] || \
