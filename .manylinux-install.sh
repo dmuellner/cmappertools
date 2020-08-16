@@ -5,6 +5,8 @@ set -e -x
 # Install Boost, -y means "assume yes".
 yum -y install boost148-thread boost148-devel
 
+ls -la /opt/_internal/cpython-2.7.18-ucs2/include/python2.7
+
 # Compile wheels
 for PYBIN in /opt/python/*/bin; do
     if [[ "${PYBIN}" == *"cp27"* ]] || \
