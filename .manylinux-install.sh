@@ -4,13 +4,17 @@ set -e -x
 
 # Install Boost, -y means "assume yes".
 yum -y install boost148-thread boost148-devel
-ls -la /usr/lib/boost148/
-ls -la /usr/lib64/boost148/
+ls -la /usr
+ls -la /usr/lib
+ls -la /usr/lib/boost148
+ls -la /usr/lib64/boost148
 ln -s /usr/lib/boost148/libboost_thread-mt.so /usr/lib/boost148/libboost_thread.so
 ln -s /usr/lib64/boost148/libboost_thread-mt.so /usr/lib64/boost148/libboost_thread.so
 
 # Compile wheels
 for PYBIN in /opt/python/*/bin; do
+    echo "Python:"
+    echo ${PYBIN}
     if [[ "${PYBIN}" == *"cp27"* ]] || \
        [[ "${PYBIN}" == *"cp35"* ]] || \
        [[ "${PYBIN}" == *"cp36"* ]] || \
