@@ -23,11 +23,10 @@ for PYBIN in /opt/python/*/bin; do
        [[ "${PYBIN}" == *"cp38"* ]]; then
         "${PYBIN}/pip" install numpy
         ls -la /io
-        "${PYBIN}/pip" install -e /io/
         echo '''[build_ext]
 include_dirs=/usr/include/boost148
 ''' > /io/setup.cfg
-        ls -la /io
+        "${PYBIN}/pip" install -e /io/
     (cd /io && "${PYBIN}/python" setup.py test)
         "${PYBIN}/pip" wheel /io/ -w dist/
         rm -rf /io/build /io/*.egg-info
