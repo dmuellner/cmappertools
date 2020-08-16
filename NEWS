@@ -1,6 +1,6 @@
 cmappertools: Tools for Python Mapper in C++
 
-Copyright © 2011–2016 Daniel Müllner, http://danifold.net
+Copyright © 2011–2020 Daniel Müllner, http://danifold.net
 
 
 Version history
@@ -24,3 +24,7 @@ Version 1.0.23, 10/13/2015:
 Version 1.0.24, 03/02/2016:
 
   • Bugfix in csr_graph_generator.
+
+Version 1.0.25, 08/16/2020:
+
+  • Updated copyright notices.

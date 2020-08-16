@@ -1,16 +1,20 @@
 /*
 cmappertools: Tools for Python Mapper in C++
 
-This file is part of the Python Mapper package, an open source tool
-for exploration, analysis and visualization of data.
+  This file is part of Python Mapper, an open source tool for exploration,
+  analysis, and visualization of data.
 
-Copyright 2011–2016 Daniel Müllner, http://danifold.net
+  Copyright 2011-2020 Daniel Müllner <http://danifold.net>
 
-Python Mapper is distributed under the GPLv3 license. See the project home page
+  Python Mapper is released under the GNU General Public License version 3
+  (GPLv3). You should have received a copy of the license along with this
+  program in the file COPYING. If not, see <https://www.gnu.org/licenses/>.
 
-    http://danifold.net/mapper
+  See the project home page
 
-for more information.
+      <http://danifold.net/mapper/>
+
+  for more information, including installation instructions and documentation.
 */
 
 #define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION
@@ -246,8 +250,8 @@ CMT_Py_XDECREF(PYOBJECT *o)
 
 bool const multithreading = true;
 
-static char const __version__[] = "1.0.24";
-static char const __date__[] = "March 2, 2016";
+static char const __version__[] = "1.0.25";
+static char const __date__[] = "August 16, 2020";
 
 ///////////////////////////////////////////////////////////////////////////////
 

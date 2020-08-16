@@ -1,3 +1,4 @@
 include csr_graph.hpp
+include COPYING
 include NEWS
 include README

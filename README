@@ -1,12 +1,22 @@
 cmappertools: Tools for the Python Mapper in C++
 
-Copyright © 2011-2016 Daniel Müllner <http://danifold.net>
+Copyright 2011-2020 Daniel Müllner <http://danifold.net>
 
 License
 -------
 
-The cmappertools package is licensed under the GNU General Public License (GPL)
-Version 3. See <http://www.gnu.org/licenses/gpl.html>
+This file is part of Python Mapper, an open source tool for exploration,
+analysis, and visualization of data.
+
+Python Mapper is released under the GNU General Public License version 3
+(GPLv3). You should have received a copy of the license along with this
+program in the file COPYING. If not, see <https://www.gnu.org/licenses/>.
+
+See the project home page
+
+    <http://danifold.net/mapper/>
+
+for more information, including installation instructions and documentation.
 
 Installation
 ------------

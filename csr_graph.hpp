@@ -1,7 +1,20 @@
 /*
   Compressed sparse row graph structure for use with boost::graph.
 
-  Copyright 2011–2016 Daniel Müllner, http://danifold.net
+  This file is part of Python Mapper, an open source tool for exploration,
+  analysis, and visualization of data.
+
+  Copyright 2011-2020 Daniel Müllner <http://danifold.net>
+
+  Python Mapper is released under the GNU General Public License version 3
+  (GPLv3). You should have received a copy of the license along with this
+  program in the file COPYING. If not, see <https://www.gnu.org/licenses/>.
+
+  See the project home page
+
+      <http://danifold.net/mapper/>
+
+  for more information, including installation instructions and documentation.
 
   This file is derived from the C++ header file
       compressed_sparse_row_graph.hpp
@@ -24,16 +37,7 @@
     edgelist                : array of size (num_edges)
     weightlist              : array of size (num_edges)
     rowstart                : array of size (num_vertices+1)
-
-  This file is part of the Python Mapper package, an open source tool
-  for exploration, analysis and visualization of data. Python Mapper is
-  distributed under the GPLv3 license. See the project home page
-
-    http://danifold.net/mapper
-
-  for more information.
 */
-
 #ifndef CSR_GRAPH_HPP
 #define CSR_GRAPH_HPP
 

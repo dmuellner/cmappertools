@@ -1,5 +1,20 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+'''
+  This file is part of Python Mapper, an open source tool for exploration,
+  analysis, and visualization of data.
+
+  Copyright 2011-2020 Daniel Müllner <http://danifold.net>
+
+  Python Mapper is released under the GNU General Public License version 3
+  (GPLv3). You should have received a copy of the license along with this
+  program in the file COPYING. If not, see <https://www.gnu.org/licenses/>.
+
+  See the project home page
+
+      <http://danifold.net/mapper/>
+
+  for more information, including installation instructions and documentation.
+'''
 import sys
 import numpy
 if sys.hexversion < 0x03000000: # uniform unicode handling for both Python 2.x and 3.x
