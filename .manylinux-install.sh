@@ -5,7 +5,8 @@ set -e -x
 # Install Boost, -y means "assume yes".
 yum -y install boost148-thread boost148-devel
 
-ls -la /opt/_internal/cpython-2.7.18-ucs2/include/python2.7
+ls -la /opt/_internal/cpython-2.7.18-ucs2/lib/python2.7/site-packages
+ls -la /opt/_internal/cpython-2.7.18-ucs2/lib/python2.7/site-packages/boost*
 
 # Compile wheels
 for PYBIN in /opt/python/*/bin; do
