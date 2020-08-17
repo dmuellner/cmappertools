@@ -48,4 +48,5 @@ deploy:
   on:
     repo: dmuellner/cmappertools
     tags: true
-  skip_cleanup: 'true'
+  skip_cleanup: true
+  overwrite: true
