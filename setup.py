@@ -44,10 +44,10 @@ if sys.platform.startswith('win32'):
     libraries = []
     extra_compile_args = ['/EHsc']
 elif sys.platform.startswith('darwin'):
-    libraries = ['boost_thread-mt', 'boost_chrono-mt']
+    libraries = ['boost_thread-mt', 'boost_chrono-mt', 'boost_system-mt']
     extra_compile_args = []
 else:
-    libraries = ['boost_thread', 'boost_chrono']
+    libraries = ['boost_thread', 'boost_chrono', 'boost_system']
     extra_compile_args = []
 
 setup(name='cmappertools',
