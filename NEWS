@@ -28,4 +28,8 @@ Version 1.0.24, 03/02/2016:
 Version 1.0.25, 08/16/2020:
 
   • Updated copyright notices.
-  • Updates build scripts to new Python versions.
+  • Updated build scripts to new Python versions.
+
+Version 1.0.26, 08/17/2020:
+
+  • Fixed library dependency on boost_system.

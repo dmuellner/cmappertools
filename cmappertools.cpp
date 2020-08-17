@@ -250,8 +250,8 @@ CMT_Py_XDECREF(PYOBJECT *o)
 
 bool const multithreading = true;
 
-static char const __version__[] = "1.0.25";
-static char const __date__[] = "August 16, 2020";
+static char const __version__[] = "1.0.26";
+static char const __date__[] = "August 17, 2020";
 
 ///////////////////////////////////////////////////////////////////////////////
 
