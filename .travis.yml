@@ -44,7 +44,7 @@ deploy:
   api_key:
     secure: JTUdOnRlxqBAFzwYWiwx4sCaZJwkJ+tvpiruC3sl3SaIa5PUY3grJmOY+pLSv/VDGSETMDxLmEeMiJh+cKEXFcpicjB90tpuxe7Oye0HU+1x/nKWZGU9Z/3ShlAlVl8H3T6ENQGCwMnUTKhm0Nzjq8rSM3uccFYn6MXQI283ni2f4Pwgbd93Ohqh1ti7lSO/Qs5uFgn99GPq6xB2JtSRXtyV2tcIPuVuDro6b6BrXlUKaNDMlgxZ27ydZm0hRLN75Mes1vR3NtzA4vqoo7rUAIgun8qJqa3hyHkTpDBP6VT6OWo07/aiMBDuTeKp0KdwgRVUzdiVDT7JW+FpLBLhx8AQXtlBtHCuxeeugpn71rf8pcGJxTqEKr7g4VPdyk1uoS6+evO39EWjyj8KP4DIq1c0HRqPC1CKHA6k1Vu/L6jRlR/XF0satYm+Hpitslx9bqD2J/hNuqW1sQVhxf4qJTQdsK24qOPg+mo6Tq0JHrNRLNa31UrTpilVFpGUX7UJ/YOF2r+CY0UXOesflUzHDNL6KbM9e4MSfvNO07PhM+SZRVth+8MKJZOjqw8sPNshmE6lVtxveMz+DNDX/ea8VYZ5ZzflBmARBXVy1MxTa8Fbq1hFjqmsxBeOnizhXLg2HF8F++p+CS5wuXpa2R6Q6BXDFFAPaNwoC2S1/ceZyfM=
   file_glob: true
-  file: dist/fastcluster*.whl
+  file: dist/cmappertools*.whl
   skip_cleanup: true
   on:
     repo: dmuellner/cmappertools
